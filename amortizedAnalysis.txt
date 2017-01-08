@@ -1,0 +1,24 @@
+1. How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty array which starts
+out at capacity 8, assuming that the array will double in capacity each time a new item is added to an already full dynamic array? As
+N (ie. the number of pushes) grows large, under this strategy for resizing, what is the amortized complexity for a push?
+
+	56 cost units are spent
+	O(1)+
+
+2. How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty array which starts out
+at capacity 8, assuming that the array will grow by a constant 2 spaces each time a new item is added to an already full dynamic
+array? As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the amortized complexity for a
+push?
+	260 cost units are spent
+	O(n)
+	
+3. Suppose that a dynamic array stack doubles its capacity when it is full, and shrinks (on Pop only) its capacity by
+half when the array is half full or less. Can you devise a sequence of N push() and pop() operations which will result in poor
+performance (O(N^2) total cost)? How might you adjust the array's shrinking policy to avoid this? (Hint: You may assume that the
+initial capacity of the array is N/2.)
+
+	If values are pushed into the stack until capacity is reached, the capacity will double. If immediately after capacity
+	is doubled, a value is popped from the stack, the size of the array will drop below half capacity and the array will be
+	cut in half. The array's shrinking policy could be adjusted so that if the size reaches 1/4 capacity, the array capacity
+	will be cut in half. This would solve the problem of the possiblity that the array's capacity being doubled and halved
+	repeatedly.
